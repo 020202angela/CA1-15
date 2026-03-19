@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -N UDE_Ablation_Final
+#PBS -j oe
+#PBS -l select=1:ncpus=16:mem=32gb
+#PBS -l walltime=24:00:00
+
+cd ${PBS_O_WORKDIR}
+
+export JULIA_NUM_THREADS=16
+export OPENBLAS_NUM_THREADS=1
+export PATH="/scratch/e1583014/environment/julia-1.12.4/bin:$PATH"
+
+echo "=== TASK START: $(date) ==="
+
+echo ">>> Running train_ude.jl..."
+stdbuf -oL julia --project=. train_ude.jl
+
+if [ -f results/ude_weights.jls ]; then
+    echo ">>> Training DONE. Running plot_results.jl..."
+    stdbuf -oL julia --project=. plot_results.jl
+else
+    echo "❌ ERROR: Training files missing!"
+    exit 1
+fi
+
+echo "=== TASK COMPLETE: $(date) ==="

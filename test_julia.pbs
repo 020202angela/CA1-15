@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N UDE_Smoke_Test
+#PBS -j oe
+#PBS -l select=1:ncpus=16:mem=32gb
+#PBS -l walltime=00:30:00
+
+cd ${PBS_O_WORKDIR}
+
+export JULIA_NUM_THREADS=16
+export OPENBLAS_NUM_THREADS=1
+export PATH="/scratch/e1583014/environment/julia-1.12.4/bin:$PATH"
+
+echo "=== SMOKE TEST START: $(date) ==="
+
+stdbuf -oL julia --project=. test.jl
+
+echo "=== SMOKE TEST COMPLETE: $(date) ==="
