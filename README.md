@@ -52,7 +52,7 @@ After training, run the plotting script to generate the final 10-panel analytica
 julia analysis/plot_results.jl
 ```
 
-Authors (Group 15)
+## Authors (Group 15)
 
 Wang Shiming: Formulated physical equations, optimized simulation data, and authored core report sections.
 
