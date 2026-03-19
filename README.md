@@ -64,4 +64,4 @@ Wu Junke: Selected optimization algorithms and conducted quantitative performanc
 
 Xu Zixuan: Handled data post-processing, generated visualization figures, and analyzed force field heatmaps.
 
-If you find this project helpful for your SciML research, please give this repository a!
+If you find this project helpful for your SciML research, please give this repository a⭐!
