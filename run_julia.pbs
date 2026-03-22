@@ -8,7 +8,7 @@ cd ${PBS_O_WORKDIR}
 
 export JULIA_NUM_THREADS=16
 export OPENBLAS_NUM_THREADS=1
-export PATH="/scratch/e1583014/environment/julia-1.12.4/bin:$PATH"
+export PATH="/environment/julia-1.12.4/bin:$PATH"
 
 echo "=== TASK START: $(date) ==="
 
